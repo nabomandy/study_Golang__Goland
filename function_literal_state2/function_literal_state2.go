@@ -22,7 +22,7 @@ func CaptureLoop() {
 }
 
 func CaptureLoop2() {
-	f := make([]func(), 3)
+	f := make([]func(), 3) //리터럴 3개를 갖고 있는 슬라이스
 	fmt.Println("ValueLoop2")
 	for i := 0; i < 3; i++ {
 		v := i
