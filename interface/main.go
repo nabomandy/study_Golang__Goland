@@ -30,8 +30,7 @@ func (s Student) String() string { // Student의 String() 메서드
 func main() {
 	student := Student{"앤디", 31} // Student 타입
 	var stringer Stringer        // Stringer 타입
-
-	stringer = student // stringer 값으로 student 대입
+	stringer = student           // stringer 값으로 student 대입
 
 	fmt.Printf("%s\n", stringer.String()) // stringer 의 String() 메서드 호출
 
