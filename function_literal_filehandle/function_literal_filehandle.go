@@ -8,6 +8,7 @@ import (
 )
 
 type Writer func(string)
+
 type WriterInterface interface {
 	Write(string)
 }

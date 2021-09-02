@@ -18,13 +18,9 @@ type OpFn func(int, int) int
 //func getOperator(op string) func(int, int) int{ // op에 따른 함수 타입 반환 -> func(int, int) int 전체가 하나의 타입 -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
 func getOperator(op string) OpFn { // op에 따른 함수 타입 반환 -> func(int, int) int 전체가 하나의 타입 -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
 	if op == "+" {
-		return func(a, b int) int { // 람다
-			return a + b
-		} // add라는 애의 주소 위에 add 함수
+		return add // add라는 애의 주소 위에 add 함수
 	} else if op == "*" {
-		return func(a, b int) int { // 람다
-			return a * b
-		}
+		return mul
 	} else { // + 나 * 가 아니면 nul 반환
 		return nil
 	}
@@ -41,30 +37,3 @@ func main() {
 	fmt.Println(result)
 
 }
-
-/**
-함수리터럴(람다식)-> 함수를 박아 넣었다
-
-var a int = 3
-b := a
-를 바꾸면
-b := 3
-
-
-func add(a, b int) int {
-	return a + b
-}
-f := add
-를 바꾸면
-f := (a, b int) {
-	return a + b
-}
-
-함수 리터럴은 일반 함수랑 다르다
--> 함수 리터럴은 내부 상태(First class, First Object)를 가질 수 있다. 일반함수는 상태를 가질 수 없다.
-
-
-
-
-
-*/
