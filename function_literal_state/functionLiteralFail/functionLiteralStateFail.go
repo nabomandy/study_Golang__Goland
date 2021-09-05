@@ -5,13 +5,11 @@ import (
 	_ "fmt"
 )
 
+func aaa() int {
 
-func aaa() {
-
-	i + 10 // 컴파일 에러 : Unresolved reference 'i'
+	i := 2
+	return i + 10 // 컴파일 에러 : Unresolved reference 'i' -> int 타입으로 리턴 값을 주게 이용
 }
-
-
 
 func main() {
 	i := 0
@@ -20,7 +18,7 @@ func main() {
 		i += 10
 	}
 
-	++i // 컴파일 에러 : '++' unexpected
+	i++ // 컴파일 에러 : '++' unexpected -> ++i에서 i++로 변경
 
 	f()
 
@@ -34,6 +32,3 @@ func main() {
 즉, 포인터가 복사된다고 볼 수 있다. 같은 메모리 공간을 가리킨다.
 
 */
-
-
-

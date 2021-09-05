@@ -14,6 +14,7 @@ func (c *Cart) AddProduct(product string) {
 		c.productList += ", "
 	}
 	c.productList += product
+
 }
 
 func (c *Cart) Clear() {

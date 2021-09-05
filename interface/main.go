@@ -11,10 +11,11 @@ Stringer의 원뜻과는 관계가 없다.
 */
 
 type Stringer interface { // Stringer 인터페이스 선언
-	String() string // 매개변수 없이 string 타입을 반환하는 String()메서드를 포함
-	//String1() string // 이렇게 하면 컴파일 에러 -> String1()이라는 메서드가 없기 떄문에.
-	//인터페이스 구현여부를 타입 선언시 하는게 아니라 인터페이스에 대입을 할 때 체크하는 거
-	// -> 여기 있는 인터페이스를 가지고 있으면, Stringer 인터페이스라고 보겠다.
+	String1() string // 매개변수 없이 string 타입을 반환하는 String()메서드를 포함
+	/*
+		//String1() string // 이렇게 하면 컴파일 에러 -> String1()이라는 메서드가 없기 떄문에.
+		인터페이스 구현여부를 타입 선언시 하는게 아니라 인터페이스에 대입을 할 때 체크하는 거
+		 -> 여기 있는 인터페이스를 가지고 있으면, Stringer 인터페이스라고 보겠다.*/
 }
 
 type Student struct {

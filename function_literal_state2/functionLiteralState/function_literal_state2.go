@@ -13,9 +13,7 @@ func CaptureLoop() {
 			fmt.Println(i) //캠쳐된 i값 출력
 		}
 	}
-
 	// 이 시점에서 i = 3
-
 	for j := 0; j < 3; j++ {
 		f[j]()
 	}
@@ -30,7 +28,6 @@ func CaptureLoop2() {
 			fmt.Println(v)
 		}
 	}
-
 	for i := 0; i < 3; i++ {
 		f[i]()
 	}

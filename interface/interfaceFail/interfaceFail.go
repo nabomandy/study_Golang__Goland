@@ -11,9 +11,8 @@ Stringer의 원뜻과는 관계가 없다.
 */
 
 type Stringer interface { // Stringer 인터페이스 선언
-	String() string // 매개변수 없이 string 타입을 반환하는 String()메서드를 포함
-	int() int
-	//String1() string // 이렇게 하면 컴파일 에러 -> String1()이라는 메서드가 없기 떄문에.
+	String() string  // 매개변수 없이 string 타입을 반환하는 String()메서드를 포함
+	String1() string // 이렇게 하면 컴파일 에러 -> String1()이라는 메서드가 없기 떄문에.
 	//인터페이스 구현여부를 타입 선언시 하는게 아니라 인터페이스에 대입을 할 때 체크하는 거
 	// -> 여기 있는 인터페이스를 가지고 있으면, Stringer 인터페이스라고 보겠다.
 }
@@ -32,7 +31,8 @@ func main() {
 	student := Student{"앤디", 31} // Student 타입
 	var stringer Stringer        // Stringer 타입
 	stringer = student           // stringer 값으로 student 대입
-
+	// 컴파일에러 : Cannot use 'student' (type Student) as the type Stringer Type does not implement 'Stringer' as some methods are missing: String1() string
+	// String1() 메서드가 구현되지 않았기 때문이다.
 	fmt.Printf("%s\n", stringer.String()) // stringer 의 String() 메서드 호출
 
 }

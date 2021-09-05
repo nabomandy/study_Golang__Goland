@@ -20,7 +20,8 @@ func (q *Queue) Pop() interface{} { // 요소를 반환하면서 삭제
 	if front != nil {    // 빈 리스트가 아니면
 		return q.v.Remove(front) //리무브 하면 리무브된 엘리먼트의 밸류가 리턴된다.
 	}
-	return nil // 비어있으면 닐을 반환한다.
+	//return nil // 비어있으면 닐을 반환한다.
+	return 0 //
 }
 
 func NewQueue() *Queue { // 새로운 큐를 만드는 거

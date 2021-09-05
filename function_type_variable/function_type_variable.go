@@ -15,8 +15,10 @@ func mul(a, b int) int {
 
 type OpFn func(int, int) int
 
-//func getOperator(op string) func(int, int) int{ // op에 따른 함수 타입 반환 -> func(int, int) int 전체가 하나의 타입 -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
-func getOperator(op string) OpFn { // op에 따른 함수 타입 반환 -> func(int, int) int 전체가 하나의 타입 -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
+//func getOperator(op string) func(int, int) int{ // op에 따른 함수 타입 반환
+//-> func(int, int) int 전체가 하나의 타입 -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
+func getOperator(op string) OpFn { // op에 따른 함수 타입 반환 -> func(int, int) int 전체가 하나의 타입
+	// -> 이렇게만 쓰면 보통 지저분해서 별칭 타입을 만들어준다.
 	if op == "+" {
 		return add // add라는 애의 주소 위에 add 함수
 	} else if op == "*" {
@@ -24,7 +26,6 @@ func getOperator(op string) OpFn { // op에 따른 함수 타입 반환 -> func(
 	} else { // + 나 * 가 아니면 nul 반환
 		return nil
 	}
-
 }
 
 func main() {

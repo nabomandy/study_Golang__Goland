@@ -2,18 +2,21 @@
 package main
 
 import (
+	"fmt"
 	"sync"
 )
 
 var wg sync.WaitGroup
 
 func SumAtoB(a, b int) {
-	sum := 0
+
 	for i := a; i <= b; i++ {
-		sum
+		sum = a + b
+		fmt.Println(sum)
+		fmt.Println("p")
 	}
 }
 
 func main() {
-
+	SumAtoB(3, 4)
 }

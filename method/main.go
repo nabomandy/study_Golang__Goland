@@ -10,7 +10,8 @@ type myInt int // 사용자 정의 별칭 타입
 // myInt 별칭타입을 리시버로 갖는 메서드
 func (a myInt) add(b int) int {
 	//return a + b //-> why is it er?
-	// .\main.go:12:11: invalid operation: a + b (mismatched types myInt and int)
+	// 런타임 에러 :
+	//.\main.go:12:11: invalid operation: a + b (mismatched types myInt and int)
 	// 에러메시지를 보면 음 이게 문제구나 알겠는데, 왜지?  myInt는 int 타입 아닌거? 엄연히 다른 타입으로 Go는 생각하는거면 뭐라고 생각하는 걸까?
 	return int(a) + b
 }

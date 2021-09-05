@@ -36,7 +36,8 @@ func PrintNumber() {
 	for i := 1 i < 5; i++ { // ;가 빠졌다.
 		/**
 		컴파일 에러 :
-		'!=', '%', '&', '&^', '(', '*', '+', '-', '/', <, <<, <=, '==', '>', '>=', '>>', '[', '^', '{', '|' or '~' expected, got 'i'
+		'!=', '%', '&', '&^', '(', '*', '+', '-', '/', <, <<, <=, '==', '>',
+		'>=', '>>', '[', '^', '{', '|' or '~' expected, got 'i'
 		Unresolved reference 'i'
 		i < 5 evaluated but not used
 
@@ -51,7 +52,6 @@ func main() {
 	go PrintNumber() // 새로운 고루틴 생성
 
 	time.Sleep(3 * time.Second) // 3초간 대기
-
 }
 
 /**

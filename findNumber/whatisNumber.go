@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// 최종결과물 파일
 var stdin = bufio.NewReader(os.Stdin)
 
 func InputIntValue() (int, error) {

@@ -31,7 +31,6 @@ func CaptureLoop2() {
 		}
 	}
 	/**
-
 	런타임 에러 -> 리터럴 3개를 갖고 있는 슬라이스인데, 그 이상의 수 만큼 넣으려고 해서 에러 -> 패닉
 	ValueLoop
 	3
@@ -47,7 +46,8 @@ func CaptureLoop2() {
 		C:/Users/andya/GolandProjects/awesomeProject/function_literal_state2/functionLiteralStateFail/functionLiteralStateFail.go:41 +0x1c
 	*/
 
-	for i := 0 i < 3; i++ { // 컴파일 에러 : i < 3 evaluated but not used -> 초기화 후에는 구분자 ; 가 있어야 한다.
+	for i := 0 i < 3; i++ { // 컴파일 에러 : i < 3 evaluated but not used
+							// -> 초기화 후에는 구분자 ; 가 있어야 한다.
 		f[i]()
 	}
 }

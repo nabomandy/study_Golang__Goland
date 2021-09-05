@@ -21,6 +21,6 @@ func main() {
 	m[38] = Student{"백두산", 78}
 	m[45] = Student{"김갑환", 56}
 
-	fmt.Println("38번:", m[38])
+	fmt.Println("없는 번호 10번:", m[10]) // 없는 번호 출력 요청
 
 }

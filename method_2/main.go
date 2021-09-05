@@ -32,7 +32,8 @@ func main() {
 	fmt.Println(mainA.balance) // 70 출력
 
 	mainA.withdrawValue(20)    // 값 타입 메서드 호출
-	fmt.Println(mainA.balance) // 여전히 70 출력 // 복사된 다른 인스턴스에서 계산은 했지만 리턴으로 복사를 다시 하지 않아서 변경이 안된/?
+	fmt.Println(mainA.balance) // 여전히 70 출력
+	// 복사된 다른 인스턴스에서 계산은 했지만 리턴으로 복사를 다시 하지 않아서 변경이 안된다.
 
 	var mainB account = mainA.withdrawReturnValue(20)
 	fmt.Println(mainB.balance) // 50 출력
