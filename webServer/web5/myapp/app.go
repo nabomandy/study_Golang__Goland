@@ -26,7 +26,7 @@ func NewHandler() http.Handler {
 	mux := mux2.NewRouter()
 
 	mux.HandleFunc("/", indexHandler)
-	mux.HandleFunc("/users", userHandler)
+	mux.HandleFunc("/users", userHandler).Methods("GET")
 	mux.HandleFunc("/users/{id:[0-9]+}", getUserInfoHandler)
 
 	return mux

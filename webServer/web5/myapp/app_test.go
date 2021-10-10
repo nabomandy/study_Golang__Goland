@@ -1,17 +1,19 @@
 package myapp
 
 import (
-	assert2 "github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestIndex(t *testing.T) {
-	assert := assert2.New(t)
+	assert := assert.New(t)
 
-	ts := httptest.NewServer(NewHandler()) //목업테스트 서버. 실제 서버는 아니지만
+	ts := httptest.NewServer(NewHandler())
 	defer ts.Close()
 
 	resp, err := http.Get(ts.URL)
@@ -21,10 +23,10 @@ func TestIndex(t *testing.T) {
 	assert.Equal("Hello World", string(data))
 }
 
-func testUseres(t *testing.T) {
-	assert := assert2.New(t)
+func TestUsers(t *testing.T) {
+	assert := assert.New(t)
 
-	ts := httptest.NewServer(NewHandler()) //목업테스트 서버. 실제 서버는 아니지만
+	ts := httptest.NewServer(NewHandler())
 	defer ts.Close()
 
 	resp, err := http.Get(ts.URL + "/users")
@@ -32,6 +34,34 @@ func testUseres(t *testing.T) {
 	assert.Equal(http.StatusOK, resp.StatusCode)
 	data, _ := ioutil.ReadAll(resp.Body)
 	assert.Contains(string(data), "Get UserInfo")
-	//assert.Equal("Hello World", string(data))
+}
+
+func TestGetUserInfo(t *testing.T) {
+	assert := assert.New(t)
+
+	ts := httptest.NewServer(NewHandler())
+	defer ts.Close()
+
+	resp, err := http.Get(ts.URL + "/users/89")
+	assert.NoError(err)
+	assert.Equal(http.StatusOK, resp.StatusCode)
+	data, _ := ioutil.ReadAll(resp.Body)
+	assert.Contains(string(data), "User Id:89")
+
+	resp, err = http.Get(ts.URL + "/users/56")
+	assert.NoError(err)
+	assert.Equal(http.StatusOK, resp.StatusCode)
+	data, _ = ioutil.ReadAll(resp.Body)
+	assert.Contains(string(data), "User Id:56")
+}
+
+func TestCreateUserInfo(t *testing.T) {
+	assert := assert.New(t)
+
+	ts := httptest.NewServer(NewHandler())
+	defer ts.Close()
+
+	http.Post(ts.URL+"/users", "application/json", strings.NewReader(`{"first_name":"andy","last_name":"b","email":"mailing"`))
+	assert.NoError(err)
 
 }
